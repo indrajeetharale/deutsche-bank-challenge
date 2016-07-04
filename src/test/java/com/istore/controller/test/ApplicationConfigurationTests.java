@@ -248,7 +248,10 @@ public class ApplicationConfigurationTests {
 		 @SuppressWarnings("unchecked")
 		 ResponseEntity<Map> entity = new TestRestTemplate().getForEntity(
 					"http://localhost:" + this.port + "/shops/distance?latitude=35.0632284&longitude=-94.8818735", Map.class);
-		 assertEquals(HttpStatus.OK, entity.getStatusCode());	
+		 System.out.println(entity.getBody());
+		 assertEquals(HttpStatus.OK, entity.getStatusCode());
+		 String distance=entity.getBody().get("distance").toString();
+		  assertEquals("143.33763670107263", distance);
 	
 	}
 
